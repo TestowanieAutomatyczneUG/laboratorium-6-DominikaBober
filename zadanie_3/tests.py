@@ -1,7 +1,7 @@
 import unittest
 from hamcrest import *
 from function import dawaj_give, song
-
+song_text = open("laboratorium-6-DominikaBober/zadanie_3/song.txt","r+").read()
 
 class DawajGiveTest(unittest.TestCase):
 
@@ -170,6 +170,10 @@ class DawajGiveTest(unittest.TestCase):
         assert_that(self.temp(10, 12), is_(song[10]+'\n\n'+song[11]+'\n\n'+song[12]))
     def test_verses_from_11_to_12(self):
         assert_that(self.temp(11, 12), is_(song[11]+'\n\n'+song[12]))
+
+    # whole song test
+    def test_whole_song(self):
+        assert_that(self.temp("all"), is_(song_text))
 
 
 
