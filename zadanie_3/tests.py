@@ -4,7 +4,7 @@ from function import dawaj_give, song_text, song_list
 
 class DawajGiveTest(unittest.TestCase):
 
-    testing = "test_one_verse"
+    testing = "test_verses_from_list"
 
     def setUp(self):
         self.temp = dawaj_give
@@ -255,128 +255,125 @@ class DawajGiveTest(unittest.TestCase):
 
     # verses from list tests
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_empty_list(self):
-        assert_that(self.temp([]), is_(""))
-    @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
     def test_verses_4(self):
         assert_that(self.temp([4]), is_(song_list[3]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_12_13(self):
-        assert_that(self.temp([12, 13]), is_(song_list[11]+'\n\n'+song_list[12]))
+    def test_verses_2_2(self):
+        assert_that(self.temp([2, 2]), is_(song_list[1]+'\n\n'+song_list[1]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_10_9_11(self):
-        assert_that(self.temp([10, 9, 11]), is_(song_list[9]+'\n\n'+song_list[8]+'\n\n'+song_list[10]))
+    def test_verses_10_9_7(self):
+        assert_that(self.temp([10, 9, 7]), is_(song_list[9]+'\n\n'+song_list[8]+'\n\n'+song_list[6]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_4_3_3_12(self):
-        assert_that(self.temp([4, 3, 3, 12]), is_(song_list[3]+'\n\n'+song_list[2]+'\n\n'+song_list[2]+'\n\n'+song_list[11]))
+    def test_verses_1_3_11_10(self):
+        assert_that(self.temp([1, 3, 11, 10]), is_(song_list[0]+'\n\n'+song_list[2]+'\n\n'+song_list[10]+'\n\n'+song_list[9]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_8_5_7_13_12(self):
-        assert_that(self.temp([8, 5, 7, 13, 12]), is_(song_list[7]+'\n\n'+song_list[4]+'\n\n'+song_list[6]+'\n\n'+song_list[12]+'\n\n'+song_list[11]))
+    def test_verses_7_5_2_8_11(self):
+        assert_that(self.temp([7, 5, 2, 8, 11]), is_(song_list[6]+'\n\n'+song_list[4]+'\n\n'+song_list[1]+'\n\n'+song_list[7]+'\n\n'+song_list[10]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_3_4_8_11_6_3(self):
-        assert_that(self.temp([3, 4, 8, 11, 6, 3]), is_(song_list[2]+'\n\n'+song_list[3]+'\n\n'+song_list[7]+'\n\n'+song_list[10]+'\n\n'+song_list[5]+'\n\n'+song_list[2]))
+    def test_verses_2_9_1_2_12_2(self):
+        assert_that(self.temp([2, 9, 1, 2, 12, 2]), is_(song_list[1]+'\n\n'+song_list[8]+'\n\n'+song_list[0]+'\n\n'+song_list[1]+'\n\n'+song_list[11]+'\n\n'+song_list[1]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_5_10_11_6_9_12_10(self):
-        assert_that(self.temp([5, 10, 11, 6, 9, 12, 10]), is_(song_list[4]+'\n\n'+song_list[9]+'\n\n'+song_list[10]+'\n\n'+song_list[5]+'\n\n'+song_list[8]+'\n\n'+song_list[11]+'\n\n'+song_list[9]))
+    def test_verses_7_4_4_5_3_10_6(self):
+        assert_that(self.temp([7, 4, 4, 5, 3, 10, 6]), is_(song_list[6]+'\n\n'+song_list[3]+'\n\n'+song_list[3]+'\n\n'+song_list[4]+'\n\n'+song_list[2]+'\n\n'+song_list[9]+'\n\n'+song_list[5]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_7_11_2_3_4_12_2_8(self):
-        assert_that(self.temp([7, 11, 2, 3, 4, 12, 2, 8]), is_(song_list[6]+'\n\n'+song_list[10]+'\n\n'+song_list[1]+'\n\n'+song_list[2]+'\n\n'+song_list[3]+'\n\n'+song_list[11]+'\n\n'+song_list[1]+'\n\n'+song_list[7]))
+    def test_verses_7_3_6_9_2_3_7_9(self):
+        assert_that(self.temp([7, 3, 6, 9, 2, 3, 7, 9]), is_(song_list[6]+'\n\n'+song_list[2]+'\n\n'+song_list[5]+'\n\n'+song_list[8]+'\n\n'+song_list[1]+'\n\n'+song_list[2]+'\n\n'+song_list[6]+'\n\n'+song_list[8]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_1_7_5_13_8_4_3_1_1(self):
-        assert_that(self.temp([1, 7, 5, 13, 8, 4, 3, 1, 1]), is_(song_list[0]+'\n\n'+song_list[6]+'\n\n'+song_list[4]+'\n\n'+song_list[12]+'\n\n'+song_list[7]+'\n\n'+song_list[3]+'\n\n'+song_list[2]+'\n\n'+song_list[0]+'\n\n'+song_list[0]))
+    def test_verses_8_10_8_10_9_11_7_5_4(self):
+        assert_that(self.temp([8, 10, 8, 10, 9, 11, 7, 5, 4]), is_(song_list[7]+'\n\n'+song_list[9]+'\n\n'+song_list[7]+'\n\n'+song_list[9]+'\n\n'+song_list[8]+'\n\n'+song_list[10]+'\n\n'+song_list[6]+'\n\n'+song_list[4]+'\n\n'+song_list[3]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_12_12_9_8_9_2_12_7_11_2(self):
-        assert_that(self.temp([12, 12, 9, 8, 9, 2, 12, 7, 11, 2]), is_(song_list[11]+'\n\n'+song_list[11]+'\n\n'+song_list[8]+'\n\n'+song_list[7]+'\n\n'+song_list[8]+'\n\n'+song_list[1]+'\n\n'+song_list[11]+'\n\n'+song_list[6]+'\n\n'+song_list[10]+'\n\n'+song_list[1]))
+    def test_verses_2_10_11_3_7_9_12_6_4_7(self):
+        assert_that(self.temp([2, 10, 11, 3, 7, 9, 12, 6, 4, 7]), is_(song_list[1]+'\n\n'+song_list[9]+'\n\n'+song_list[10]+'\n\n'+song_list[2]+'\n\n'+song_list[6]+'\n\n'+song_list[8]+'\n\n'+song_list[11]+'\n\n'+song_list[5]+'\n\n'+song_list[3]+'\n\n'+song_list[6]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_6_11_7_10_12_5_10_13_4_5_5(self):
-        assert_that(self.temp([6, 11, 7, 10, 12, 5, 10, 13, 4, 5, 5]), is_(song_list[5]+'\n\n'+song_list[10]+'\n\n'+song_list[6]+'\n\n'+song_list[9]+'\n\n'+song_list[11]+'\n\n'+song_list[4]+'\n\n'+song_list[9]+'\n\n'+song_list[12]+'\n\n'+song_list[3]+'\n\n'+song_list[4]+'\n\n'+song_list[4]))
+    def test_verses_10_10_11_3_6_6_1_6_9_10_12(self):
+        assert_that(self.temp([10, 10, 11, 3, 6, 6, 1, 6, 9, 10, 12]), is_(song_list[9]+'\n\n'+song_list[9]+'\n\n'+song_list[10]+'\n\n'+song_list[2]+'\n\n'+song_list[5]+'\n\n'+song_list[5]+'\n\n'+song_list[0]+'\n\n'+song_list[5]+'\n\n'+song_list[8]+'\n\n'+song_list[9]+'\n\n'+song_list[11]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_10_9_4_7_7_1_9_8_9_13_6_7(self):
-        assert_that(self.temp([10, 9, 4, 7, 7, 1, 9, 8, 9, 13, 6, 7]), is_(song_list[9]+'\n\n'+song_list[8]+'\n\n'+song_list[3]+'\n\n'+song_list[6]+'\n\n'+song_list[6]+'\n\n'+song_list[0]+'\n\n'+song_list[8]+'\n\n'+song_list[7]+'\n\n'+song_list[8]+'\n\n'+song_list[12]+'\n\n'+song_list[5]+'\n\n'+song_list[6]))
+    def test_verses_11_3_6_9_11_11_12_4_12_3_5_8(self):
+        assert_that(self.temp([11, 3, 6, 9, 11, 11, 12, 4, 12, 3, 5, 8]), is_(song_list[10]+'\n\n'+song_list[2]+'\n\n'+song_list[5]+'\n\n'+song_list[8]+'\n\n'+song_list[10]+'\n\n'+song_list[10]+'\n\n'+song_list[11]+'\n\n'+song_list[3]+'\n\n'+song_list[11]+'\n\n'+song_list[2]+'\n\n'+song_list[4]+'\n\n'+song_list[7]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_3(self):
-        assert_that(self.temp([3]), is_(song_list[2]))
+    def test_verses_6(self):
+        assert_that(self.temp([6]), is_(song_list[5]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_7_13(self):
-        assert_that(self.temp([7, 13]), is_(song_list[6]+'\n\n'+song_list[12]))
+    def test_verses_9_4(self):
+        assert_that(self.temp([9, 4]), is_(song_list[8]+'\n\n'+song_list[3]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_5_10_1(self):
-        assert_that(self.temp([5, 10, 1]), is_(song_list[4]+'\n\n'+song_list[9]+'\n\n'+song_list[0]))
+    def test_verses_8_5_4(self):
+        assert_that(self.temp([8, 5, 4]), is_(song_list[7]+'\n\n'+song_list[4]+'\n\n'+song_list[3]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_5_9_4_13(self):
-        assert_that(self.temp([5, 9, 4, 13]), is_(song_list[4]+'\n\n'+song_list[8]+'\n\n'+song_list[3]+'\n\n'+song_list[12]))
+    def test_verses_1_6_2_1(self):
+        assert_that(self.temp([1, 6, 2, 1]), is_(song_list[0]+'\n\n'+song_list[5]+'\n\n'+song_list[1]+'\n\n'+song_list[0]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_3_12_8_1_2(self):
-        assert_that(self.temp([3, 12, 8, 1, 2]), is_(song_list[2]+'\n\n'+song_list[11]+'\n\n'+song_list[7]+'\n\n'+song_list[0]+'\n\n'+song_list[1]))
+    def test_verses_6_6_8_11_5(self):
+        assert_that(self.temp([6, 6, 8, 11, 5]), is_(song_list[5]+'\n\n'+song_list[5]+'\n\n'+song_list[7]+'\n\n'+song_list[10]+'\n\n'+song_list[4]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_13_10_11_13_12_11(self):
-        assert_that(self.temp([13, 10, 11, 13, 12, 11]), is_(song_list[12]+'\n\n'+song_list[9]+'\n\n'+song_list[10]+'\n\n'+song_list[12]+'\n\n'+song_list[11]+'\n\n'+song_list[10]))
+    def test_verses_11_4_6_5_4_11(self):
+        assert_that(self.temp([11, 4, 6, 5, 4, 11]), is_(song_list[10]+'\n\n'+song_list[3]+'\n\n'+song_list[5]+'\n\n'+song_list[4]+'\n\n'+song_list[3]+'\n\n'+song_list[10]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_12_11_3_2_7_5_1(self):
-        assert_that(self.temp([12, 11, 3, 2, 7, 5, 1]), is_(song_list[11]+'\n\n'+song_list[10]+'\n\n'+song_list[2]+'\n\n'+song_list[1]+'\n\n'+song_list[6]+'\n\n'+song_list[4]+'\n\n'+song_list[0]))
+    def test_verses_10_12_4_9_7_2_8(self):
+        assert_that(self.temp([10, 12, 4, 9, 7, 2, 8]), is_(song_list[9]+'\n\n'+song_list[11]+'\n\n'+song_list[3]+'\n\n'+song_list[8]+'\n\n'+song_list[6]+'\n\n'+song_list[1]+'\n\n'+song_list[7]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_13_10_4_1_13_6_4_3(self):
-        assert_that(self.temp([13, 10, 4, 1, 13, 6, 4, 3]), is_(song_list[12]+'\n\n'+song_list[9]+'\n\n'+song_list[3]+'\n\n'+song_list[0]+'\n\n'+song_list[12]+'\n\n'+song_list[5]+'\n\n'+song_list[3]+'\n\n'+song_list[2]))
+    def test_verses_4_1_6_6_7_12_3_1(self):
+        assert_that(self.temp([4, 1, 6, 6, 7, 12, 3, 1]), is_(song_list[3]+'\n\n'+song_list[0]+'\n\n'+song_list[5]+'\n\n'+song_list[5]+'\n\n'+song_list[6]+'\n\n'+song_list[11]+'\n\n'+song_list[2]+'\n\n'+song_list[0]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_7_12_10_13_12_4_12_13_1(self):
-        assert_that(self.temp([7, 12, 10, 13, 12, 4, 12, 13, 1]), is_(song_list[6]+'\n\n'+song_list[11]+'\n\n'+song_list[9]+'\n\n'+song_list[12]+'\n\n'+song_list[11]+'\n\n'+song_list[3]+'\n\n'+song_list[11]+'\n\n'+song_list[12]+'\n\n'+song_list[0]))
+    def test_verses_4_11_7_12_5_8_7_8_8(self):
+        assert_that(self.temp([4, 11, 7, 12, 5, 8, 7, 8, 8]), is_(song_list[3]+'\n\n'+song_list[10]+'\n\n'+song_list[6]+'\n\n'+song_list[11]+'\n\n'+song_list[4]+'\n\n'+song_list[7]+'\n\n'+song_list[6]+'\n\n'+song_list[7]+'\n\n'+song_list[7]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_5_5_13_10_1_12_3_11_6_11(self):
-        assert_that(self.temp([5, 5, 13, 10, 1, 12, 3, 11, 6, 11]), is_(song_list[4]+'\n\n'+song_list[4]+'\n\n'+song_list[12]+'\n\n'+song_list[9]+'\n\n'+song_list[0]+'\n\n'+song_list[11]+'\n\n'+song_list[2]+'\n\n'+song_list[10]+'\n\n'+song_list[5]+'\n\n'+song_list[10]))
+    def test_verses_9_3_6_10_9_3_11_4_4_11(self):
+        assert_that(self.temp([9, 3, 6, 10, 9, 3, 11, 4, 4, 11]), is_(song_list[8]+'\n\n'+song_list[2]+'\n\n'+song_list[5]+'\n\n'+song_list[9]+'\n\n'+song_list[8]+'\n\n'+song_list[2]+'\n\n'+song_list[10]+'\n\n'+song_list[3]+'\n\n'+song_list[3]+'\n\n'+song_list[10]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_3_9_2_5_9_8_12_3_8_8_5(self):
-        assert_that(self.temp([3, 9, 2, 5, 9, 8, 12, 3, 8, 8, 5]), is_(song_list[2]+'\n\n'+song_list[8]+'\n\n'+song_list[1]+'\n\n'+song_list[4]+'\n\n'+song_list[8]+'\n\n'+song_list[7]+'\n\n'+song_list[11]+'\n\n'+song_list[2]+'\n\n'+song_list[7]+'\n\n'+song_list[7]+'\n\n'+song_list[4]))
+    def test_verses_9_10_1_4_3_4_2_2_3_12_1(self):
+        assert_that(self.temp([9, 10, 1, 4, 3, 4, 2, 2, 3, 12, 1]), is_(song_list[8]+'\n\n'+song_list[9]+'\n\n'+song_list[0]+'\n\n'+song_list[3]+'\n\n'+song_list[2]+'\n\n'+song_list[3]+'\n\n'+song_list[1]+'\n\n'+song_list[1]+'\n\n'+song_list[2]+'\n\n'+song_list[11]+'\n\n'+song_list[0]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_10_13_5_8_8_5_10_5_8_12_13_6(self):
-        assert_that(self.temp([10, 13, 5, 8, 8, 5, 10, 5, 8, 12, 13, 6]), is_(song_list[9]+'\n\n'+song_list[12]+'\n\n'+song_list[4]+'\n\n'+song_list[7]+'\n\n'+song_list[7]+'\n\n'+song_list[4]+'\n\n'+song_list[9]+'\n\n'+song_list[4]+'\n\n'+song_list[7]+'\n\n'+song_list[11]+'\n\n'+song_list[12]+'\n\n'+song_list[5]))
+    def test_verses_4_12_6_8_1_7_7_3_11_6_5_7(self):
+        assert_that(self.temp([4, 12, 6, 8, 1, 7, 7, 3, 11, 6, 5, 7]), is_(song_list[3]+'\n\n'+song_list[11]+'\n\n'+song_list[5]+'\n\n'+song_list[7]+'\n\n'+song_list[0]+'\n\n'+song_list[6]+'\n\n'+song_list[6]+'\n\n'+song_list[2]+'\n\n'+song_list[10]+'\n\n'+song_list[5]+'\n\n'+song_list[4]+'\n\n'+song_list[6]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_1(self):
-        assert_that(self.temp([1]), is_(song_list[0]))
+    def test_verses_8(self):
+        assert_that(self.temp([8]), is_(song_list[7]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_10_9(self):
-        assert_that(self.temp([10, 9]), is_(song_list[9]+'\n\n'+song_list[8]))
+    def test_verses_11_11(self):
+        assert_that(self.temp([11, 11]), is_(song_list[10]+'\n\n'+song_list[10]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_9_6_6(self):
-        assert_that(self.temp([9, 6, 6]), is_(song_list[8]+'\n\n'+song_list[5]+'\n\n'+song_list[5]))
+    def test_verses_5_11_7(self):
+        assert_that(self.temp([5, 11, 7]), is_(song_list[4]+'\n\n'+song_list[10]+'\n\n'+song_list[6]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_6_7_7_2(self):
-        assert_that(self.temp([6, 7, 7, 2]), is_(song_list[5]+'\n\n'+song_list[6]+'\n\n'+song_list[6]+'\n\n'+song_list[1]))
+    def test_verses_12_7_8_1(self):
+        assert_that(self.temp([12, 7, 8, 1]), is_(song_list[11]+'\n\n'+song_list[6]+'\n\n'+song_list[7]+'\n\n'+song_list[0]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_13_8_13_12_13(self):
-        assert_that(self.temp([13, 8, 13, 12, 13]), is_(song_list[12]+'\n\n'+song_list[7]+'\n\n'+song_list[12]+'\n\n'+song_list[11]+'\n\n'+song_list[12]))
+    def test_verses_10_2_1_9_6(self):
+        assert_that(self.temp([10, 2, 1, 9, 6]), is_(song_list[9]+'\n\n'+song_list[1]+'\n\n'+song_list[0]+'\n\n'+song_list[8]+'\n\n'+song_list[5]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_2_8_11_4_6_11(self):
-        assert_that(self.temp([2, 8, 11, 4, 6, 11]), is_(song_list[1]+'\n\n'+song_list[7]+'\n\n'+song_list[10]+'\n\n'+song_list[3]+'\n\n'+song_list[5]+'\n\n'+song_list[10]))
+    def test_verses_9_5_10_7_11_5(self):
+        assert_that(self.temp([9, 5, 10, 7, 11, 5]), is_(song_list[8]+'\n\n'+song_list[4]+'\n\n'+song_list[9]+'\n\n'+song_list[6]+'\n\n'+song_list[10]+'\n\n'+song_list[4]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_10_7_8_6_3_12_9(self):
-        assert_that(self.temp([10, 7, 8, 6, 3, 12, 9]), is_(song_list[9]+'\n\n'+song_list[6]+'\n\n'+song_list[7]+'\n\n'+song_list[5]+'\n\n'+song_list[2]+'\n\n'+song_list[11]+'\n\n'+song_list[8]))
+    def test_verses_1_9_6_12_7_10_1(self):
+        assert_that(self.temp([1, 9, 6, 12, 7, 10, 1]), is_(song_list[0]+'\n\n'+song_list[8]+'\n\n'+song_list[5]+'\n\n'+song_list[11]+'\n\n'+song_list[6]+'\n\n'+song_list[9]+'\n\n'+song_list[0]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_10_11_6_10_12_7_10_13(self):
-        assert_that(self.temp([10, 11, 6, 10, 12, 7, 10, 13]), is_(song_list[9]+'\n\n'+song_list[10]+'\n\n'+song_list[5]+'\n\n'+song_list[9]+'\n\n'+song_list[11]+'\n\n'+song_list[6]+'\n\n'+song_list[9]+'\n\n'+song_list[12]))
+    def test_verses_8_5_6_5_7_10_7_5(self):
+        assert_that(self.temp([8, 5, 6, 5, 7, 10, 7, 5]), is_(song_list[7]+'\n\n'+song_list[4]+'\n\n'+song_list[5]+'\n\n'+song_list[4]+'\n\n'+song_list[6]+'\n\n'+song_list[9]+'\n\n'+song_list[6]+'\n\n'+song_list[4]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_5_6_2_13_7_10_10_10_6(self):
-        assert_that(self.temp([5, 6, 2, 13, 7, 10, 10, 10, 6]), is_(song_list[4]+'\n\n'+song_list[5]+'\n\n'+song_list[1]+'\n\n'+song_list[12]+'\n\n'+song_list[6]+'\n\n'+song_list[9]+'\n\n'+song_list[9]+'\n\n'+song_list[9]+'\n\n'+song_list[5]))
+    def test_verses_9_8_6_5_8_7_5_8_9(self):
+        assert_that(self.temp([9, 8, 6, 5, 8, 7, 5, 8, 9]), is_(song_list[8]+'\n\n'+song_list[7]+'\n\n'+song_list[5]+'\n\n'+song_list[4]+'\n\n'+song_list[7]+'\n\n'+song_list[6]+'\n\n'+song_list[4]+'\n\n'+song_list[7]+'\n\n'+song_list[8]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_5_11_12_10_11_11_8_4_3_12(self):
-        assert_that(self.temp([5, 11, 12, 10, 11, 11, 8, 4, 3, 12]), is_(song_list[4]+'\n\n'+song_list[10]+'\n\n'+song_list[11]+'\n\n'+song_list[9]+'\n\n'+song_list[10]+'\n\n'+song_list[10]+'\n\n'+song_list[7]+'\n\n'+song_list[3]+'\n\n'+song_list[2]+'\n\n'+song_list[11]))
+    def test_verses_8_6_2_1_4_9_4_11_10_6(self):
+        assert_that(self.temp([8, 6, 2, 1, 4, 9, 4, 11, 10, 6]), is_(song_list[7]+'\n\n'+song_list[5]+'\n\n'+song_list[1]+'\n\n'+song_list[0]+'\n\n'+song_list[3]+'\n\n'+song_list[8]+'\n\n'+song_list[3]+'\n\n'+song_list[10]+'\n\n'+song_list[9]+'\n\n'+song_list[5]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_2_8_3_13_13_12_9_1_4_3_5(self):
-        assert_that(self.temp([2, 8, 3, 13, 13, 12, 9, 1, 4, 3, 5]), is_(song_list[1]+'\n\n'+song_list[7]+'\n\n'+song_list[2]+'\n\n'+song_list[12]+'\n\n'+song_list[12]+'\n\n'+song_list[11]+'\n\n'+song_list[8]+'\n\n'+song_list[0]+'\n\n'+song_list[3]+'\n\n'+song_list[2]+'\n\n'+song_list[4]))
+    def test_verses_5_5_12_3_3_11_6_5_3_3_5(self):
+        assert_that(self.temp([5, 5, 12, 3, 3, 11, 6, 5, 3, 3, 5]), is_(song_list[4]+'\n\n'+song_list[4]+'\n\n'+song_list[11]+'\n\n'+song_list[2]+'\n\n'+song_list[2]+'\n\n'+song_list[10]+'\n\n'+song_list[5]+'\n\n'+song_list[4]+'\n\n'+song_list[2]+'\n\n'+song_list[2]+'\n\n'+song_list[4]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_2_9_3_8_8_4_6_8_4_1_5_4(self):
-        assert_that(self.temp([2, 9, 3, 8, 8, 4, 6, 8, 4, 1, 5, 4]), is_(song_list[1]+'\n\n'+song_list[8]+'\n\n'+song_list[2]+'\n\n'+song_list[7]+'\n\n'+song_list[7]+'\n\n'+song_list[3]+'\n\n'+song_list[5]+'\n\n'+song_list[7]+'\n\n'+song_list[3]+'\n\n'+song_list[0]+'\n\n'+song_list[4]+'\n\n'+song_list[3]))
+    def test_verses_2_11_12_2_12_1_2_7_1_3_8_7(self):
+        assert_that(self.temp([2, 11, 12, 2, 12, 1, 2, 7, 1, 3, 8, 7]), is_(song_list[1]+'\n\n'+song_list[10]+'\n\n'+song_list[11]+'\n\n'+song_list[1]+'\n\n'+song_list[11]+'\n\n'+song_list[0]+'\n\n'+song_list[1]+'\n\n'+song_list[6]+'\n\n'+song_list[0]+'\n\n'+song_list[2]+'\n\n'+song_list[7]+'\n\n'+song_list[6]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_1(self):
-        assert_that(self.temp([1]), is_(song_list[0]))
+    def test_verses_11(self):
+        assert_that(self.temp([11]), is_(song_list[10]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_12_7(self):
-        assert_that(self.temp([12, 7]), is_(song_list[11]+'\n\n'+song_list[6]))
+    def test_verses_12_4(self):
+        assert_that(self.temp([12, 4]), is_(song_list[11]+'\n\n'+song_list[3]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_6_12_11(self):
-        assert_that(self.temp([6, 12, 11]), is_(song_list[5]+'\n\n'+song_list[11]+'\n\n'+song_list[10]))
+    def test_verses_1_11_5(self):
+        assert_that(self.temp([1, 11, 5]), is_(song_list[0]+'\n\n'+song_list[10]+'\n\n'+song_list[4]))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
-    def test_verses_12_7_8_3(self):
-        assert_that(self.temp([12, 7, 8, 3]), is_(song_list[11]+'\n\n'+song_list[6]+'\n\n'+song_list[7]+'\n\n'+song_list[2]))
+    def test_verses_12_9_4_2(self):
+        assert_that(self.temp([12, 9, 4, 2]), is_(song_list[11]+'\n\n'+song_list[8]+'\n\n'+song_list[3]+'\n\n'+song_list[1]))
 
 
 

@@ -18,6 +18,15 @@ def dawaj_give(ver_1, ver_2 = None):
             return result
         elif type(ver_1) is int:
             return song_list[ver_1-1]
+        else:
+            result = ""
+            for i in range(len(ver_1)):
+                if i == 0:
+                    result = result + song_list[ver_1[i]-1]
+                else:
+                    result = result + "\n\n" + song_list[ver_1[i]-1]
+            
+            return result
     
     except ConnectionError:
         raise Exception("Wrong variable for verses")
