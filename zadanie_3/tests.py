@@ -4,7 +4,7 @@ from function import dawaj_give, song_text, song_list
 
 class DawajGiveTest(unittest.TestCase):
 
-    testing = "test_verses_from_list"
+    testing = "all"
 
     def setUp(self):
         self.temp = dawaj_give
@@ -254,6 +254,9 @@ class DawajGiveTest(unittest.TestCase):
         assert_that(self.temp("all"), is_(song_text))
 
     # verses from list tests
+    @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
+    def test_verses_empty_list(self):
+        assert_that(self.temp([]), is_(""))
     @unittest.skipIf(testing!= "test_verses_from_list" and testing!="all", "TDD")
     def test_verses_4(self):
         assert_that(self.temp([4]), is_(song_list[3]))
