@@ -4,7 +4,7 @@ from function import dawaj_give, song_text, song_list
 
 class DawajGiveTest(unittest.TestCase):
 
-    testing = "all"
+    testing = "test_exceptions"
 
     def setUp(self):
         self.temp = dawaj_give
@@ -378,6 +378,38 @@ class DawajGiveTest(unittest.TestCase):
     def test_verses_12_9_4_2(self):
         assert_that(self.temp([12, 9, 4, 2]), is_(song_list[11]+'\n\n'+song_list[8]+'\n\n'+song_list[3]+'\n\n'+song_list[1]))
 
-
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_bool_true(self):
+        assert_that(calling(self.temp).with_args(True), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_bool_false(self):
+        assert_that(calling(self.temp).with_args(False), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_empty_string(self):
+        assert_that(calling(self.temp).with_args(""), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_string(self):
+        assert_that(calling(self.temp).with_args("some string"), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_empty_dict(self):
+        assert_that(calling(self.temp).with_args({}), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_dict(self):
+        assert_that(calling(self.temp).with_args({"some_key": "some string"}), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_no_arguments(self):
+        assert_that(calling(self.temp).with_args(), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_too_many_arguments(self):
+        assert_that(calling(self.temp).with_args(1,2,3), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_nonexistent_index_of_verse_20(self):
+        assert_that(calling(self.temp).with_args(20), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_nonexistent_index_of_verse_20000(self):
+        assert_that(calling(self.temp).with_args(20000), raises(Exception))
+    @unittest.skipIf(testing!= "test_exceptions" and testing!="all", "TDD")
+    def test_Exception_nonexistent_index_of_verse_minus_67(self):
+        assert_that(calling(self.temp).with_args(-67), raises(Exception))
 
 unittest.main()
