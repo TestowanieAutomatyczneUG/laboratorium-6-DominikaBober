@@ -4,7 +4,7 @@ from function import dawaj_give, song_text, song_list
 
 class DawajGiveTest(unittest.TestCase):
 
-    testing = "test_exceptions"
+    testing = "all"
 
     def setUp(self):
         self.temp = dawaj_give
