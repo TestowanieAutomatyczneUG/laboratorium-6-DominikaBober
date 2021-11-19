@@ -8,14 +8,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.9.7
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9.7
-    - name: Install dependencies
-      run: |
-        /opt/hostedtoolcache/Python/3.9.7/x64/bin/python -m pip install --upgrade pip
-        pip install -r requirements.txt
     - name: test zadanie_1
       run: |
         python zadanie_1/tests.py
