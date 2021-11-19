@@ -3,7 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  build-linux:
+  tests-zadanie_1:
     runs-on: ubuntu-latest
 
     steps:
@@ -11,9 +11,21 @@ jobs:
     - name: test zadanie_1
       run: |
         python zadanie_1/tests.py
+        
+  tests-zadanie_2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2 
     - name: test zadanie_2
       run: |
         python zadanie_2/tests.py
-    - name: test zadanie_2
+        
+  tests-zadanie_3:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: test zadanie_3
       run: |
-        python zadanie_2/tests.py
+        python zadanie_3/tests.py
