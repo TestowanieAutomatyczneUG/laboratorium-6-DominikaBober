@@ -4,7 +4,7 @@ hamming = Hamming()
 
 class HammingTest(unittest.TestCase):
 
-    testing = ""
+    testing = "test_equal_gens"
 
     @unittest.skipIf(testing!= "test_equal_gens" and testing!="all", "TDD")
     def test_empty_strands(self):
