@@ -1,5 +1,5 @@
-song_text = open("laboratorium-6-DominikaBober/zadanie_3/song.txt","r+").read()
-song_list = open("laboratorium-6-DominikaBober/zadanie_3/song.txt","r+").read().split("\n\n")
+song_text = open("zadanie_3/song.txt","r+").read()
+song_list = open("zadanie_3/song.txt","r+").read().split("\n\n")
 
 def dawaj_give(ver_1, ver_2 = None):
 
